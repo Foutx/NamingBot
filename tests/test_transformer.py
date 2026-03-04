@@ -1,11 +1,12 @@
-import torch
 import sys
-sys.path.append('.')
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from transformers import AutoTokenizer
 
 from src.embedings import Embedings
 from src.transformer import TransformerModel
-
-from transformers import AutoTokenizer
 
 
 embedings = Embedings()
