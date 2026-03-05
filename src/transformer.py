@@ -4,13 +4,13 @@ import torch.nn as nn
 
 class TransformerModel(nn.Module):
 
-    def __init__(self, vocab_size, emb_dim = 768, nums_heads = 8, num_layers = 4):
+    def __init__(self, vocab_size, emb_dim = 768, nums_heads = 12, num_layers = 6):  
         super().__init__()
 
         transform_layer = nn.TransformerEncoderLayer(
             d_model = emb_dim,
             nhead = nums_heads,
-            dim_feedforward = emb_dim * 4,
+            dim_feedforward = emb_dim * 4, 
             dropout = 0.1,
             activation = 'gelu',
             batch_first = True
@@ -33,6 +33,3 @@ class TransformerModel(nn.Module):
         preds = self.out_layer(x)
 
         return preds
-
-
-
